@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
+
+.container-fluid {
+    background-color: #efebe9;
+    height: 100%;
+}
+.header{
+    min-height: 100px;
+}
+.header h1 {
+    font-family: 'Satisfy', cursive;
+    font-size: 70px;
+    color: #a1887f;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 30px;
+}
+.story {
+    font-family: 'Satisfy', cursive;
+    margin: 30px 20px 20px 40px;
+    font-size: 30px;
+    color: #a1887f;
+}
+.error-notice {
+    text-align: center;
+    color: #dd2c00;
+    font-size: 35px;
+}
+#loginForm, input {
+    text-align: center;
+}
+

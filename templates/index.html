@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Country Quiz Login Here</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="header">
+            <h1>inspector flask's holiday snaps</h1>
+        </div>
+        <div class="story">
+            <p>I remember it like it was yesterday, the guest who came to stay at my auntie's inn. He was an old gentleman, broadly built and from what I could gather was running away from various mental incapacities that are usually brought on by aging. One day, while we were eating a fine lunch of freshly caught sardines, he was reminiscing about various places he had the pleasure of visiting; he was a fine raconteur, his story-telling abilities had been honed after attending many a great occasion.</p>
+            <p>After lunch, he excused himself while he retired to his suite to fetch what he referred to as his holiday snaps. As he came back into the dining area he dropped the large leather-bound tome, where a myriad of photos where left scattered across the floor. I immediately lept off my chair and carefully picked the tome and the photos up. He thanked me and asked me if I could pass each photo to him and tell him in what country was each photo taken...</p>
+            <p>First off, we need to inform the inspector of your name, it has to be one he hasn't remembered else he'll get in a right muddle!</p>
+            <form method="POST" id="loginForm">
+                please enter a name:<input type="text" name="username" required>
+                <button>submit</button>
+            </form>
+            {% if error %}
+                <div class="error-notice">
+                    <p><span>{{ error }}</span></p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

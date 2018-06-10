@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Question</title>
+</head>
+<body>
+    <h1>Question {{ question.id }}</h1>
+    <img src="{{ question.image_source }}">
+    <br>
+    <h5>Current Score: {{ score }}</h5>
+    <br>
+    <form method="POST">
+        OK {{ user }}, what Country is this in? <input type="text" name="country_guess" id="guess" required>
+        <button>Submit Answer</button>
+    </form>
+    <span></span>
+    <br>
+    <br>
+    <div class="wrong_answers">Wrong Answers</div>
+
+<script>
+$( "form" ).submit(function ( event ) {
+    var guess = $('#guess').val().toUpperCase();
+    if ( guess === "{{ question.country }}") {
+        $( "span" ).text( "Correct" ).show();
+        return;
+    }
+    $( "span" ).text(" Wrong " ).show().fadeOut( 2500 );
+    $( ".wrong_answers" ).append('<p>' + guess + '</p>');
+    $('input:text').focus( function() { $(this).val(''); });
+    event.preventDefault();
+});
+</script>
+</body>
+</html>
