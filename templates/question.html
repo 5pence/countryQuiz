@@ -11,21 +11,26 @@
     <title>Question</title>
 </head>
 <body>
-    <h1>Question {{ question.id }}</h1>
-    <img class="photo" src="{{ question.image_source }}">
-    <br>
-    <h5>Current Score: {{ score }}</h5>
-    <br>
-    <form method="POST">
-        OK {{ user }}, what Country is this in? <input type="text" name="country_guess" id="guess" required>
-        <textarea id="pointsWorth" name="pointsWorth">3</textarea>
-        <button>Submit Answer</button>
-    </form>
-    <span></span>
-    <br>
-    <br>
-    <div class="wrong_answers">Wrong Answers</div>
-
+    <div class="container-fluid">
+        <div class="header">
+            <h1>question {{ question.id }}</h1>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <img class="photo" src="{{ question.image_source }}">
+            </div>
+            <div class="col info">
+                <h5>current score: {{ score }}</h5>
+                <hr>
+                <form method="POST">
+                    OK {{ user }}, what country is this in? <input type="text" name="country_guess" id="guess" required>
+                    <button class="btn btn-success">submit</button>
+                    <textarea id="pointsWorth" name="pointsWorth">3</textarea>
+                </form>
+                <div class="wrong_answers">wrong answers:</div>
+            </div>
+        </div>
+    </div>
 <script>
     var tries = 3;
 

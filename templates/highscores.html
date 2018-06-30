@@ -10,18 +10,17 @@
     <title>Country Quiz Highscores</title>
 </head>
 <body>
-
     <div class="container-fluid">
         <div class="header">
             <h1>inspector flask's holiday snaps</h1>
         </div>
-        <div class="story">
+        <div class="highscores">
             <p>thanks {{ user }}, lets see how you did:</p>
-            <ol>
+            <ul>
                 {% for name, score in high_score %}
                 <li>{{ name }}: {{ score }}</li>
                 {% endfor %}
-            </ol>
+            </ul>
         </div>
     </div>
 </body>
