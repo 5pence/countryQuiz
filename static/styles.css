@@ -21,6 +21,11 @@
     font-size: 30px;
     color: #a1887f;
 }
+.photo{
+    width: 900px;
+    height: 600px;
+    object-fit: cover;
+}
 .error-notice {
     text-align: center;
     color: #dd2c00;

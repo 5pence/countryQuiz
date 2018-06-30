@@ -1,12 +1,13 @@
-spencer
-fred
-jane
-lola
-wendy
-felix
-darren
-jo
-harry
-solomon
-john
-harrine
+spencer 22
+jane 18
+harry 12
+felix 17
+zoe 14
+john 6
+jill 6
+frank 9
+tommy 3
+kieth 5
+paul 18
+oreo 18
+pablo 20
