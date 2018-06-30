@@ -4,10 +4,4 @@ harry 12
 felix 17
 zoe 14
 john 6
-jill 6
-frank 9
-tommy 3
-kieth 5
-paul 18
-oreo 18
-pablo 20
+snap 13

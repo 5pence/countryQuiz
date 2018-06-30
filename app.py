@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request,redirect, json, session
+from flask import Flask, render_template, request, redirect, json, session
 
 
 app = Flask(__name__)
 app.secret_key = 'oi23hh23h2d2323-234235'
 SESSION_TYPE = 'filesystem'
+
 
 app.config.from_object(__name__)
 
@@ -62,9 +63,8 @@ def index():
             session['question_number'] = 1
             session['score'] = 0
             return redirect(request.form['username'])
-        else:
-            error_message = 'Please use another name, I\'ll get in a muddle with that one.'
-            return render_template('index.html', error = error_message)
+        error_message = 'Please use another name, I\'ll get in a muddle with that one.'
+        return render_template('index.html', error = error_message)
     return render_template('index.html')
 
 
@@ -79,9 +79,8 @@ def questions(username):
         session['question_number'] += 1
         question_information = get_next_question(session['question_number'])
         return render_template('question.html', question=question_information, user=username, score=session['score'])
-    else:
-        question_information = get_next_question(session['question_number'])
-        return render_template('question.html', question=question_information, user=username, score=session['score'])
+    question_information = get_next_question(session['question_number'])
+    return render_template('question.html', question=question_information, user=username, score=session['score'])
 
 
 if __name__ == '__main__':

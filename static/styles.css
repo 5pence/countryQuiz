@@ -21,10 +21,32 @@
     font-size: 30px;
     color: #a1887f;
 }
+.highscores {
+    font-family: 'Satisfy', cursive;
+    margin: 30px 20px 20px 40px;
+    font-size: 30px;
+    color: #a1887f;
+    text-align: center;
+}
 .photo{
-    width: 900px;
     height: 600px;
     object-fit: cover;
+    float: right;
+    border: 2px solid #a1887f;
+}
+.info {
+    font-family: 'Satisfy', cursive;
+    margin: 30px 20px 20px 40px;
+    font-size: 30px;
+    color: #a1887f;
+    text-align: center;
+}
+h5 {
+    padding: 15px auto;
+    font-size: 45px;
+}
+li {
+    list-style: none;
 }
 .error-notice {
     text-align: center;
@@ -34,4 +56,6 @@
 #loginForm, input {
     text-align: center;
 }
-
+#pointsWorth {
+    visibility: hidden;
+}
