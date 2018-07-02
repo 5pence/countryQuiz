@@ -23,31 +23,39 @@
                 <h5>current score: {{ score }}</h5>
                 <hr>
                 <form method="POST">
-                    OK {{ user }}, what country is this in? <input type="text" name="country_guess" id="guess" required>
+                    okay {{ user }}, what country is this in? <input type="text" name="country_guess" id="guess" required>
                     <button class="btn btn-success">submit</button>
                     <textarea id="pointsWorth" name="pointsWorth">3</textarea>
                 </form>
+                <div id="message"></div>
                 <div class="wrong_answers">wrong answers:</div>
             </div>
         </div>
     </div>
 <script>
-    var tries = 3;
+    let tries = 3;
+    let wrongAnswers = [];
 
-$( "form" ).submit(function ( event ) {
-    var guess = $('#guess').val().toUpperCase();
-    if ( guess === "{{ question.country }}") {
-        $( "span" ).text( "Correct" ).show();
-        return;
-    }
-    $( "span" ).text(" Wrong " ).show().fadeOut( 2500 );
-    tries --;
-    document.getElementById('pointsWorth').innerHTML = tries.toString();
-    if ( tries === 0) return;
-    $( ".wrong_answers" ).append('<p>' + guess + '</p>');
-    $('input:text').focus( function() { $(this).val(''); });
-    event.preventDefault();
-});
+    $( "form" ).submit(function ( event ) {
+        let guess = $('#guess').val().toUpperCase().trim();
+        if ( guess === "{{ question.country }}") {
+            $( "span" ).text( "Correct" ).show();
+            return;
+        }
+        if ($.inArray(guess, wrongAnswers) !== -1){
+            document.getElementById('message').innerHTML='<p>You\'ve already guessed ' + guess + ' - try again!</p>';
+        } else {
+            $("span").text(" Wrong ").show().fadeOut(2500);
+            wrongAnswers.push(guess);
+            tries--;
+            document.getElementById('pointsWorth').innerHTML = tries.toString();
+            $( ".wrong_answers" ).append('<p>' + guess + '</p>');
+        }
+        if ( tries === 0) return;
+        document.getElementById('guess').value='';
+        $('input:text').focus( function() { $(this).val(''); });
+        event.preventDefault();
+    });
 </script>
 </body>
 </html>
