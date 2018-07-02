@@ -5,3 +5,8 @@ felix 17
 zoe 14
 john 6
 snap 13
+tail
+heads 18
+coin 27
+ben 12
+conor

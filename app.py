@@ -47,9 +47,10 @@ def order_the_scores():
     score_table = []
     with open('static/users.txt') as file:
         for line in file:
-            name, score = line.split(' ')
-            score = int(score)
-            score_table.append((name, score))
+            if len(line.split()) > 1:
+                name, score = line.split()
+                score = int(score)
+                score_table.append((name, score))
     score_table.sort(key=lambda s: s[1], reverse=True)
     return score_table
 
