@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 .container-fluid {
     background-color: #efebe9;
@@ -16,27 +17,25 @@
     padding-top: 30px;
 }
 .story {
-    font-family: 'Satisfy', cursive;
+    font-family: 'Raleway', sans-serif;
     margin: 30px 20px 20px 40px;
     font-size: 30px;
     color: #a1887f;
 }
 .highscores {
-    font-family: 'Satisfy', cursive;
+    font-family: 'Raleway', sans-serif;
     margin: 30px 20px 20px 40px;
     font-size: 30px;
     color: #a1887f;
     text-align: center;
 }
 .photo{
-    height: 600px;
     object-fit: cover;
-    float: right;
+    width: 100%;
     border: 2px solid #a1887f;
 }
 .info {
-    font-family: 'Satisfy', cursive;
-    margin: 30px 20px 20px 40px;
+    font-family: 'Raleway', sans-serif;
     font-size: 30px;
     color: #a1887f;
     text-align: center;

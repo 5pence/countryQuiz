@@ -16,16 +16,18 @@
             <h1>question {{ question.id }}</h1>
         </div>
         <div class="row">
-            <div class="col-8">
+            <div class="col-xs-12 col-md-8">
                 <img class="photo" src="{{ question.image_source }}">
             </div>
-            <div class="col info">
+            <div class="col-xs-12 col-md-4 info">
                 <h5>current score: {{ score }}</h5>
                 <hr>
                 <form method="POST">
                     okay {{ user }}, what country is this in? <input type="text" name="country_guess" id="guess" required>
                     <button class="btn btn-success">submit</button>
-                    <textarea id="pointsWorth" name="pointsWorth">3</textarea>
+                    <br>
+                    <span></span>
+                    <textarea id="pointsWorth" name="pointsWorth" rows="1">3</textarea>
                 </form>
                 <div id="message"></div>
                 <div class="wrong_answers">wrong answers:</div>
@@ -36,16 +38,19 @@
     let tries = 3;
     let wrongAnswers = [];
 
-    $( "form" ).submit(function ( event ) {
+    $( "button" ).click(function ( event ) {
+        event.preventDefault();
         let guess = $('#guess').val().toUpperCase().trim();
         if ( guess === "{{ question.country }}") {
-            $( "span" ).text( "Correct" ).show();
-            return;
+             $( "span" ).text( "Correct" ).show().fadeOut(2000, function() {
+                 $( "form" ).submit();
+        });
+        return;
         }
         if ($.inArray(guess, wrongAnswers) !== -1){
             document.getElementById('message').innerHTML='<p>You\'ve already guessed ' + guess + ' - try again!</p>';
         } else {
-            $("span").text(" Wrong ").show().fadeOut(2500);
+            $("span").text(" Wrong ").show().fadeOut(3000);
             wrongAnswers.push(guess);
             tries--;
             document.getElementById('pointsWorth').innerHTML = tries.toString();
