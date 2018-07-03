@@ -44,22 +44,21 @@
         if ( guess === "{{ question.country }}") {
              $( "span" ).text( "Correct" ).show().fadeOut(2000, function() {
                  $( "form" ).submit();
-        });
-        return;
+             });
         }
         if ($.inArray(guess, wrongAnswers) !== -1){
             document.getElementById('message').innerHTML='<p>You\'ve already guessed ' + guess + ' - try again!</p>';
-        } else {
-            $("span").text(" Wrong ").show().fadeOut(3000);
+        }
+        if ( guess !== "{{ question.country }}" && $.inArray(guess, wrongAnswers) === -1) {
+            $("span").text(" Wrong ").show().fadeOut(2000);
             wrongAnswers.push(guess);
             tries--;
             document.getElementById('pointsWorth').innerHTML = tries.toString();
             $( ".wrong_answers" ).append('<p>' + guess + '</p>');
         }
-        if ( tries === 0) return;
+        if ( tries === 0) $( "form ").submit();
         document.getElementById('guess').value='';
         $('input:text').focus( function() { $(this).val(''); });
-        event.preventDefault();
     });
 </script>
 </body>

@@ -1,6 +1,7 @@
 spencer 22
-jane 18
 harry 12
 felix 17
 zoe 14
 john 6
+fred 4
+wendy 20
