@@ -14,6 +14,11 @@ def write_to_file(filename, data):
         file.writelines(data)
 
 
+def check_username_is_singleword(username):
+    if len(username.split()) > 1:
+        return False
+    return True
+
 def check_username_is_unique(username):
     with open('static/users.txt', 'r') as user_list:
         usernames = user_list.readlines()
@@ -58,13 +63,13 @@ def order_the_scores():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        if check_username_is_unique(request.form['username'] + "\n"):
+        if check_username_is_singleword(request.form['username'] + "\n") and check_username_is_unique(request.form['username'] + "\n"):
             write_to_file('static/users.txt', request.form['username'].strip().lower() + "\n")
             session['username'] = request.form['username']
             session['question_number'] = 1
             session['score'] = 0
             return redirect(request.form['username'])
-        error_message = 'Please use another name, I\'ll get in a muddle with that one.'
+        error_message = 'Please use another single-word name, I\'ll get in a muddle with that one.'
         return render_template('index.html', error = error_message)
     return render_template('index.html')
 

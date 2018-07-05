@@ -4,7 +4,3 @@ felix 17
 zoe 14
 john 6
 fred 4
-wendy 20
-jane 19
-boris
-huwhd 16
