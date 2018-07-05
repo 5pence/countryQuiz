@@ -56,7 +56,11 @@
             document.getElementById('pointsWorth').innerHTML = tries.toString();
             $( ".wrong_answers" ).append('<p>' + guess + '</p>');
         }
-        if ( tries === 0) $( "form ").submit();
+        if ( tries === 0) {
+            $("span").text(" Ah I remember, it's " + "{{ question.country }}").show().fadeOut(3000, function () {
+                $( "form ").submit();
+            });
+        }
         document.getElementById('guess').value='';
         $('input:text').focus( function() { $(this).val(''); });
     });
