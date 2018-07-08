@@ -51,6 +51,16 @@ Then I went to my AWS server dashboard and clicked 'rebuild the server'.
 
 Each page was tested locally and online (the AWS server) using Chrome developer tools, testing its functionality as well as look and feel (in landscape and portrait mode) on Galaxy S5, Nexus 5S, Nexus 6P, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPad, iPad Pro and responsive desktop.
 
+All input boxes where checked for validation:
+- empty strings
+- names for more than one word
+- unique name
+- country names repeated for the same question
+
+In order to deal with letter cases I have converted all names into lowercase and all countries into capitals, this then helped making checks easier. All inputs I also trimmed for extra whitespaces.
+
+I also checked the names form when building the high score table, I found an error if a user started but didn't finish their quiz (though either giving up or using the quiz concurrently). The method was crashing as it was trying to read lines that had no score. So a simple line 'if len(line.split()) > 1:' statement resolves this when building the table, that way it ignores the lines that have just a name only. I then tried a number of different methods to order the table but researched lambda functions and used 'score_table.sort(key=lambda s: s[1], reverse=True)'. I now find lambdas and other functional programming techniques to be most useful. 
+
 
 ### What changed after user design experience (UDX) phase
 
